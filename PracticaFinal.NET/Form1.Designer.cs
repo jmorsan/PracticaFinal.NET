@@ -78,16 +78,16 @@ namespace PracticaFinal.NET
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.ListarNotas = new System.Windows.Forms.Panel();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.idAlumnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idEvaluacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pMDMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.notasTableAdapter = new PracticaFinal.NET.practicaDataSetTableAdapters.NotasTableAdapter();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.alumnosNotasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idAlumnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idEvaluacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pMDMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AltaAlumnos.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.ListarAlumnos.SuspendLayout();
@@ -518,41 +518,6 @@ namespace PracticaFinal.NET
             this.dataGridView3.Size = new System.Drawing.Size(537, 423);
             this.dataGridView3.TabIndex = 0;
             // 
-            // idAlumnoDataGridViewTextBoxColumn
-            // 
-            this.idAlumnoDataGridViewTextBoxColumn.DataPropertyName = "Id_Alumno";
-            this.idAlumnoDataGridViewTextBoxColumn.HeaderText = "Id_Alumno";
-            this.idAlumnoDataGridViewTextBoxColumn.Name = "idAlumnoDataGridViewTextBoxColumn";
-            this.idAlumnoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idEvaluacionDataGridViewTextBoxColumn
-            // 
-            this.idEvaluacionDataGridViewTextBoxColumn.DataPropertyName = "Id_Evaluacion";
-            this.idEvaluacionDataGridViewTextBoxColumn.HeaderText = "Id_Evaluacion";
-            this.idEvaluacionDataGridViewTextBoxColumn.Name = "idEvaluacionDataGridViewTextBoxColumn";
-            this.idEvaluacionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dIDataGridViewTextBoxColumn
-            // 
-            this.dIDataGridViewTextBoxColumn.DataPropertyName = "DI";
-            this.dIDataGridViewTextBoxColumn.HeaderText = "DI";
-            this.dIDataGridViewTextBoxColumn.Name = "dIDataGridViewTextBoxColumn";
-            this.dIDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pMDMDataGridViewTextBoxColumn
-            // 
-            this.pMDMDataGridViewTextBoxColumn.DataPropertyName = "PMDM";
-            this.pMDMDataGridViewTextBoxColumn.HeaderText = "PMDM";
-            this.pMDMDataGridViewTextBoxColumn.Name = "pMDMDataGridViewTextBoxColumn";
-            this.pMDMDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // aDDataGridViewTextBoxColumn
-            // 
-            this.aDDataGridViewTextBoxColumn.DataPropertyName = "AD";
-            this.aDDataGridViewTextBoxColumn.HeaderText = "AD";
-            this.aDDataGridViewTextBoxColumn.Name = "aDDataGridViewTextBoxColumn";
-            this.aDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // notasBindingSource
             // 
             this.notasBindingSource.DataMember = "Notas";
@@ -576,7 +541,7 @@ namespace PracticaFinal.NET
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(572, 28);
+            this.label5.Location = new System.Drawing.Point(552, 33);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 2;
@@ -586,6 +551,43 @@ namespace PracticaFinal.NET
             // 
             this.alumnosNotasBindingSource.DataMember = "AlumnosNotas";
             this.alumnosNotasBindingSource.DataSource = this.alumnosBindingSource;
+            // 
+            // idAlumnoDataGridViewTextBoxColumn
+            // 
+            this.idAlumnoDataGridViewTextBoxColumn.DataPropertyName = "Id_Alumno";
+            this.idAlumnoDataGridViewTextBoxColumn.HeaderText = "Id_Alumno";
+            this.idAlumnoDataGridViewTextBoxColumn.Name = "idAlumnoDataGridViewTextBoxColumn";
+            this.idAlumnoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idAlumnoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idEvaluacionDataGridViewTextBoxColumn
+            // 
+            this.idEvaluacionDataGridViewTextBoxColumn.DataPropertyName = "Id_Evaluacion";
+            this.idEvaluacionDataGridViewTextBoxColumn.HeaderText = "Id_Evaluacion";
+            this.idEvaluacionDataGridViewTextBoxColumn.Name = "idEvaluacionDataGridViewTextBoxColumn";
+            this.idEvaluacionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idEvaluacionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dIDataGridViewTextBoxColumn
+            // 
+            this.dIDataGridViewTextBoxColumn.DataPropertyName = "DI";
+            this.dIDataGridViewTextBoxColumn.HeaderText = "DI";
+            this.dIDataGridViewTextBoxColumn.Name = "dIDataGridViewTextBoxColumn";
+            this.dIDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pMDMDataGridViewTextBoxColumn
+            // 
+            this.pMDMDataGridViewTextBoxColumn.DataPropertyName = "PMDM";
+            this.pMDMDataGridViewTextBoxColumn.HeaderText = "PMDM";
+            this.pMDMDataGridViewTextBoxColumn.Name = "pMDMDataGridViewTextBoxColumn";
+            this.pMDMDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // aDDataGridViewTextBoxColumn
+            // 
+            this.aDDataGridViewTextBoxColumn.DataPropertyName = "AD";
+            this.aDDataGridViewTextBoxColumn.HeaderText = "AD";
+            this.aDDataGridViewTextBoxColumn.Name = "aDDataGridViewTextBoxColumn";
+            this.aDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Form1
             // 
@@ -678,14 +680,14 @@ namespace PracticaFinal.NET
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.BindingSource notasBindingSource;
         private practicaDataSetTableAdapters.NotasTableAdapter notasTableAdapter;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.BindingSource alumnosNotasBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idAlumnoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idEvaluacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dIDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pMDMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.BindingSource alumnosNotasBindingSource;
     }
 }
 
