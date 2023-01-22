@@ -32,10 +32,10 @@ namespace PracticaFinal.NET
             this.components = new System.ComponentModel.Container();
             this.AltaAlumnos = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.nifAlumno = new System.Windows.Forms.TextBox();
+            this.apellidosAlumno = new System.Windows.Forms.TextBox();
+            this.nombreAlumno = new System.Windows.Forms.TextBox();
+            this.bajaAlumno = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,8 +53,8 @@ namespace PracticaFinal.NET
             this.notasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ListarAlumnos = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonEliminarAlumno = new System.Windows.Forms.Button();
+            this.buttonModificarAlumno = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,11 +77,11 @@ namespace PracticaFinal.NET
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.ListarNotas = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.notasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.notasTableAdapter = new PracticaFinal.NET.practicaDataSetTableAdapters.NotasTableAdapter();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.alumnosNotasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idAlumnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idEvaluacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,10 +108,10 @@ namespace PracticaFinal.NET
             // AltaAlumnos
             // 
             this.AltaAlumnos.Controls.Add(this.button1);
-            this.AltaAlumnos.Controls.Add(this.textBox3);
-            this.AltaAlumnos.Controls.Add(this.textBox2);
-            this.AltaAlumnos.Controls.Add(this.textBox1);
-            this.AltaAlumnos.Controls.Add(this.checkBox1);
+            this.AltaAlumnos.Controls.Add(this.nifAlumno);
+            this.AltaAlumnos.Controls.Add(this.apellidosAlumno);
+            this.AltaAlumnos.Controls.Add(this.nombreAlumno);
+            this.AltaAlumnos.Controls.Add(this.bajaAlumno);
             this.AltaAlumnos.Controls.Add(this.label3);
             this.AltaAlumnos.Controls.Add(this.label2);
             this.AltaAlumnos.Controls.Add(this.label1);
@@ -129,38 +129,39 @@ namespace PracticaFinal.NET
             this.button1.TabIndex = 8;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox3
+            // nifAlumno
             // 
-            this.textBox3.Location = new System.Drawing.Point(176, 162);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(143, 20);
-            this.textBox3.TabIndex = 7;
+            this.nifAlumno.Location = new System.Drawing.Point(176, 162);
+            this.nifAlumno.Name = "nifAlumno";
+            this.nifAlumno.Size = new System.Drawing.Size(143, 20);
+            this.nifAlumno.TabIndex = 7;
             // 
-            // textBox2
+            // apellidosAlumno
             // 
-            this.textBox2.Location = new System.Drawing.Point(176, 108);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(143, 20);
-            this.textBox2.TabIndex = 6;
+            this.apellidosAlumno.Location = new System.Drawing.Point(176, 108);
+            this.apellidosAlumno.Name = "apellidosAlumno";
+            this.apellidosAlumno.Size = new System.Drawing.Size(143, 20);
+            this.apellidosAlumno.TabIndex = 6;
             // 
-            // textBox1
+            // nombreAlumno
             // 
-            this.textBox1.Location = new System.Drawing.Point(176, 61);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 20);
-            this.textBox1.TabIndex = 4;
+            this.nombreAlumno.Location = new System.Drawing.Point(176, 61);
+            this.nombreAlumno.Name = "nombreAlumno";
+            this.nombreAlumno.Size = new System.Drawing.Size(143, 20);
+            this.nombreAlumno.TabIndex = 4;
             // 
-            // checkBox1
+            // bajaAlumno
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(64, 211);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(47, 17);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "Baja";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.bajaAlumno.AutoSize = true;
+            this.bajaAlumno.Location = new System.Drawing.Point(64, 211);
+            this.bajaAlumno.Name = "bajaAlumno";
+            this.bajaAlumno.Size = new System.Drawing.Size(47, 17);
+            this.bajaAlumno.TabIndex = 3;
+            this.bajaAlumno.Text = "Baja";
+            this.bajaAlumno.UseVisualStyleBackColor = true;
+            this.bajaAlumno.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label3
             // 
@@ -216,14 +217,14 @@ namespace PracticaFinal.NET
             // altaToolStripMenuItem
             // 
             this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
-            this.altaToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.altaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.altaToolStripMenuItem.Text = "Alta";
             this.altaToolStripMenuItem.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);
             // 
             // listarToolStripMenuItem
             // 
             this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            this.listarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.listarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.listarToolStripMenuItem.Text = "Listar";
             this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
             // 
@@ -237,8 +238,9 @@ namespace PracticaFinal.NET
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // evaluacionesToolStripMenuItem
             // 
@@ -254,27 +256,27 @@ namespace PracticaFinal.NET
             // altaToolStripMenuItem1
             // 
             this.altaToolStripMenuItem1.Name = "altaToolStripMenuItem1";
-            this.altaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.altaToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
             this.altaToolStripMenuItem1.Text = "Alta";
             this.altaToolStripMenuItem1.Click += new System.EventHandler(this.altaToolStripMenuItem1_Click);
             // 
             // listarToolStripMenuItem1
             // 
             this.listarToolStripMenuItem1.Name = "listarToolStripMenuItem1";
-            this.listarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.listarToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
             this.listarToolStripMenuItem1.Text = "Listar";
             this.listarToolStripMenuItem1.Click += new System.EventHandler(this.listarToolStripMenuItem1_Click);
             // 
             // modificarToolStripMenuItem1
             // 
             this.modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
-            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
             this.modificarToolStripMenuItem1.Text = "Modificar";
             // 
             // eliminarToolStripMenuItem1
             // 
             this.eliminarToolStripMenuItem1.Name = "eliminarToolStripMenuItem1";
-            this.eliminarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.eliminarToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
             this.eliminarToolStripMenuItem1.Text = "Eliminar";
             // 
             // notasToolStripMenuItem
@@ -288,14 +290,14 @@ namespace PracticaFinal.NET
             // consultarToolStripMenuItem
             // 
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.consultarToolStripMenuItem.Text = "Consultar";
             this.consultarToolStripMenuItem.Click += new System.EventHandler(this.consultarToolStripMenuItem_Click);
             // 
             // ListarAlumnos
             // 
-            this.ListarAlumnos.Controls.Add(this.button3);
-            this.ListarAlumnos.Controls.Add(this.button2);
+            this.ListarAlumnos.Controls.Add(this.buttonEliminarAlumno);
+            this.ListarAlumnos.Controls.Add(this.buttonModificarAlumno);
             this.ListarAlumnos.Controls.Add(this.dataGridView1);
             this.ListarAlumnos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ListarAlumnos.Location = new System.Drawing.Point(0, 24);
@@ -303,23 +305,25 @@ namespace PracticaFinal.NET
             this.ListarAlumnos.Size = new System.Drawing.Size(800, 426);
             this.ListarAlumnos.TabIndex = 9;
             // 
-            // button3
+            // buttonEliminarAlumno
             // 
-            this.button3.Location = new System.Drawing.Point(243, 343);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(132, 44);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Eliminar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonEliminarAlumno.Location = new System.Drawing.Point(243, 343);
+            this.buttonEliminarAlumno.Name = "buttonEliminarAlumno";
+            this.buttonEliminarAlumno.Size = new System.Drawing.Size(132, 44);
+            this.buttonEliminarAlumno.TabIndex = 2;
+            this.buttonEliminarAlumno.Text = "Eliminar";
+            this.buttonEliminarAlumno.UseVisualStyleBackColor = true;
+            this.buttonEliminarAlumno.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // buttonModificarAlumno
             // 
-            this.button2.Location = new System.Drawing.Point(64, 343);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(130, 45);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Guardar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonModificarAlumno.Location = new System.Drawing.Point(64, 343);
+            this.buttonModificarAlumno.Name = "buttonModificarAlumno";
+            this.buttonModificarAlumno.Size = new System.Drawing.Size(130, 45);
+            this.buttonModificarAlumno.TabIndex = 1;
+            this.buttonModificarAlumno.Text = "Guardar";
+            this.buttonModificarAlumno.UseVisualStyleBackColor = true;
+            this.buttonModificarAlumno.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridView1
             // 
@@ -337,7 +341,7 @@ namespace PracticaFinal.NET
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 285);
+            this.dataGridView1.Size = new System.Drawing.Size(642, 285);
             this.dataGridView1.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn
@@ -498,6 +502,26 @@ namespace PracticaFinal.NET
             this.ListarNotas.Size = new System.Drawing.Size(800, 426);
             this.ListarNotas.TabIndex = 2;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(552, 33);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Alumno: ";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataSource = this.alumnosBindingSource;
+            this.comboBox1.DisplayMember = "Nombre";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(615, 25);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(173, 21);
+            this.comboBox1.TabIndex = 1;
+            this.comboBox1.ValueMember = "Id";
+            // 
             // dataGridView3
             // 
             this.dataGridView3.AllowUserToAddRows = false;
@@ -515,7 +539,7 @@ namespace PracticaFinal.NET
             this.dataGridView3.Location = new System.Drawing.Point(0, 3);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.Size = new System.Drawing.Size(537, 423);
+            this.dataGridView3.Size = new System.Drawing.Size(447, 423);
             this.dataGridView3.TabIndex = 0;
             // 
             // notasBindingSource
@@ -526,26 +550,6 @@ namespace PracticaFinal.NET
             // notasTableAdapter
             // 
             this.notasTableAdapter.ClearBeforeFill = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DataSource = this.alumnosBindingSource;
-            this.comboBox1.DisplayMember = "Nombre";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(615, 25);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(173, 21);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.ValueMember = "Id";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(552, 33);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Alumno: ";
             // 
             // alumnosNotasBindingSource
             // 
@@ -594,10 +598,10 @@ namespace PracticaFinal.NET
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ListarAlumnos);
             this.Controls.Add(this.AltaAlumnos);
             this.Controls.Add(this.ListarNotas);
             this.Controls.Add(this.AltaEvaluaciones);
-            this.Controls.Add(this.ListarAlumnos);
             this.Controls.Add(this.ListarEvaluaciones);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -632,13 +636,13 @@ namespace PracticaFinal.NET
 
         private System.Windows.Forms.Panel AltaAlumnos;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox bajaAlumno;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nombreAlumno;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox nifAlumno;
+        private System.Windows.Forms.TextBox apellidosAlumno;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem alumnosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem altaToolStripMenuItem;
@@ -651,8 +655,8 @@ namespace PracticaFinal.NET
         private practicaDataSet practicaDataSet;
         private System.Windows.Forms.BindingSource alumnosBindingSource;
         private practicaDataSetTableAdapters.AlumnosTableAdapter alumnosTableAdapter;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonEliminarAlumno;
+        private System.Windows.Forms.Button buttonModificarAlumno;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidosDataGridViewTextBoxColumn;
