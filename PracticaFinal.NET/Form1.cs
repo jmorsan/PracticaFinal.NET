@@ -63,6 +63,12 @@ namespace PracticaFinal.NET
             cerrarVentanas();
             AltaEvaluaciones.Visible = true;
 
+            textDescripcion.Visible = true;
+            label4.Visible = true;
+            comboBoxEvaluaciones.Visible = true;
+
+            buttonGuardarEvaluacion.Visible = true;
+
         }
 
         //*************LISTADOS************************
@@ -109,6 +115,12 @@ namespace PracticaFinal.NET
             buttonModificarEvaluacion.Visible = false;
             buttonEliminarEvaluacion.Visible = false;
 
+            comboBox1.Visible = false;
+            comboBoxEvaluaciones.Visible = false;
+
+            textDescripcion.Visible = false;
+            label4.Visible = false;
+
         }
 
         //*************MODIFICAR************************
@@ -118,7 +130,24 @@ namespace PracticaFinal.NET
             ListarAlumnos.Visible = true;
             dataGridView1.ReadOnly = false;
 
+            
+
             buttonModificarAlumno.Visible = true;
+            
+
+        }
+
+        private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            AltaEvaluaciones.Visible = true;
+            
+
+            buttonModificarEvaluacion.Visible = true;
+            comboBoxEvaluaciones.Visible = true;
+
+            textDescripcion.Visible = true;
+            label4.Visible = true;
             
 
         }
@@ -131,8 +160,16 @@ namespace PracticaFinal.NET
             dataGridView1.ReadOnly = false;
             buttonEliminarAlumno.Visible = true;
 
+        }
 
+        private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            AltaEvaluaciones.Visible = true;
 
+           
+            buttonEliminarEvaluacion.Visible = true;
+            comboBoxEvaluaciones.Visible = true;
 
 
         }
@@ -183,7 +220,55 @@ namespace PracticaFinal.NET
             }
         }
 
+        //*************ACCION BOTONES EVALUACIONES************************
+        //Boton Guardar Evaluaciones
+        private void buttonGuardarEvaluacion_Click(object sender, EventArgs e)
+        {
+            string sentencia = "INSERT INTO `Evaluaciones` (`Evaluacion`) VALUES ( \'" + textDescripcion.Text.ToString() + "\' )"; 
 
-        
+            OleDbCommand miCmd = new OleDbCommand(sentencia, connection);
+
+            miCmd.ExecuteNonQuery();
+
+            cerrarVentanas();
+            ListarEvaluaciones.Visible = true;
+
+        }
+
+        //Boton Modificar Evaluaciones
+        private void buttonModificarEvaluacion_Click(object sender, EventArgs e)
+        {
+            string sentencia = "UPDATE Evaluaciones SET Evaluacion = \'" + textDescripcion.Text.ToString() + "\' WHERE Id = " + comboBoxEvaluaciones.SelectedValue.ToString() ;
+            
+            OleDbCommand miCmd = new OleDbCommand(sentencia, connection);
+
+            miCmd.ExecuteNonQuery();
+
+            cerrarVentanas();
+            ListarEvaluaciones.Visible = true;
+        }
+
+        //Boton Eliminar Evaluaciones
+        private void buttonEliminarEvaluacion_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Borrar la evaluacion seleccionada?", "Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                string sentencia = "DELETE FROM Evaluaciones  WHERE Id = " + comboBoxEvaluaciones.SelectedValue.ToString();
+
+                OleDbCommand miCmd = new OleDbCommand(sentencia, connection);
+
+                miCmd.ExecuteNonQuery();
+
+                cerrarVentanas();
+                ListarEvaluaciones.Visible = true;
+            }
+            
+
+        }
+
+        private void AltaEvaluaciones_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
