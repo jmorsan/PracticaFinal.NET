@@ -105,7 +105,9 @@ namespace PracticaFinal.NET
             buttonModificarAlumno.Visible = false;
             buttonEliminarAlumno.Visible = false;
 
-
+            buttonGuardarEvaluacion.Visible = false;
+            buttonModificarEvaluacion.Visible = false;
+            buttonEliminarEvaluacion.Visible = false;
 
         }
 
@@ -135,6 +137,8 @@ namespace PracticaFinal.NET
 
         }
 
+        //*************ACCION BOTONES ALUMNO************************
+        //Crear Alumnos
         private void button1_Click(object sender, EventArgs e)
         {
             string sentencia = "INSERT INTO `Alumnos` (`Nombre`, `Apellidos`, `NIF`, `baja`) VALUES ( \'" + nombreAlumno.Text.ToString() + "\' , \'" + apellidosAlumno.Text.ToString() + "\' , \'" + nifAlumno.Text.ToString() + "\' ,  " + bajaAlumno.Checked + " )"; ;
@@ -147,6 +151,7 @@ namespace PracticaFinal.NET
             ListarAlumnos.Visible = true;
         }
 
+        //Modificar Alumnos
         private void button2_Click(object sender, EventArgs e)
         {
 
@@ -159,6 +164,7 @@ namespace PracticaFinal.NET
 
         }
 
+        //Eliminar Alumno
         private void button3_Click(object sender, EventArgs e)
         {
             if(dataGridView1.SelectedRows.Count!=0)
@@ -175,11 +181,8 @@ namespace PracticaFinal.NET
             {
                 MessageBox.Show("Seleccione la columna entera","Error", MessageBoxButtons.OK);
             }
-            
-
-
-
         }
+
 
         
     }
