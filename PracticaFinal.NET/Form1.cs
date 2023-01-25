@@ -36,15 +36,7 @@ namespace PracticaFinal.NET
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'practicaDataSet.Notas' Puede moverla o quitarla según sea necesario.
-            this.notasTableAdapter.Fill(this.practicaDataSet.Notas);
-            // TODO: esta línea de código carga datos en la tabla 'practicaDataSet.Evaluaciones' Puede moverla o quitarla según sea necesario.
-            this.evaluacionesTableAdapter.Fill(this.practicaDataSet.Evaluaciones);
-            // TODO: esta línea de código carga datos en la tabla 'practicaDataSet.Alumnos' Puede moverla o quitarla según sea necesario.
-            this.alumnosTableAdapter.Fill(this.practicaDataSet.Alumnos);
-            
-
-
+            Refresh();
         }
 
         //*************ALTAS************************
@@ -78,8 +70,8 @@ namespace PracticaFinal.NET
             cerrarVentanas();
             ListarAlumnos.Visible = true;
             dataGridView1.ReadOnly = true;
-
-
+            Refresh();
+            this.dataGridView1.DataSource = this.practicaDataSet.Alumnos;
 
         }
 
@@ -95,6 +87,8 @@ namespace PracticaFinal.NET
         {
             cerrarVentanas();
             ListarNotas.Visible = true;
+
+            comboBoxNotas.Visible = true;
 
 
         }
@@ -115,7 +109,7 @@ namespace PracticaFinal.NET
             buttonModificarEvaluacion.Visible = false;
             buttonEliminarEvaluacion.Visible = false;
 
-            comboBox1.Visible = false;
+            comboBoxNotas.Visible = false;
             comboBoxEvaluaciones.Visible = false;
 
             textDescripcion.Visible = false;
@@ -178,14 +172,24 @@ namespace PracticaFinal.NET
         //Crear Alumnos
         private void button1_Click(object sender, EventArgs e)
         {
-            string sentencia = "INSERT INTO `Alumnos` (`Nombre`, `Apellidos`, `NIF`, `baja`) VALUES ( \'" + nombreAlumno.Text.ToString() + "\' , \'" + apellidosAlumno.Text.ToString() + "\' , \'" + nifAlumno.Text.ToString() + "\' ,  " + bajaAlumno.Checked + " )"; ;
+
+            string sentencia = "INSERT INTO `Alumnos` (`Nombre`, `Apellidos`, `NIF`, `baja`) VALUES ( \'" + nombreAlumno.Text.ToString() + "\' , \'" + apellidosAlumno.Text.ToString() + "\' , \'" + nifAlumno.Text.ToString() + "\' ,  " + bajaAlumno.Checked + " )";
+
 
             OleDbCommand miCmd = new OleDbCommand(sentencia, connection);
 
             miCmd.ExecuteNonQuery();
 
             cerrarVentanas();
+            Refresh();
+            dataGridView1.DataSource = this.practicaDataSet.Alumnos;
+            Refresh();
+            dataGridView1.DataSource = this.practicaDataSet.Alumnos;
             ListarAlumnos.Visible = true;
+            
+
+
+            
         }
 
         //Modificar Alumnos
@@ -268,6 +272,50 @@ namespace PracticaFinal.NET
 
         private void AltaEvaluaciones_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.alumnosTableAdapter.FillBy(this.practicaDataSet.Alumnos);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+       
+        private void comboBoxNotas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBoxNotas.SelectedValue!=null)
+            //Cargar gridVieww con elemento seleccionado
+            this.notasTableAdapter.FillBy(this.practicaDataSet.Notas,Convert.ToInt32(comboBoxNotas.SelectedValue.ToString()));
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonGuardarNotas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Refresh()
+        {
+
+            // TODO: esta línea de código carga datos en la tabla 'practicaDataSet.Notas' Puede moverla o quitarla según sea necesario.
+            this.notasTableAdapter.Fill(this.practicaDataSet.Notas);
+            // TODO: esta línea de código carga datos en la tabla 'practicaDataSet.Evaluaciones' Puede moverla o quitarla según sea necesario.
+            this.evaluacionesTableAdapter.Fill(this.practicaDataSet.Evaluaciones);
+            // TODO: esta línea de código carga datos en la tabla 'practicaDataSet.Alumnos' Puede moverla o quitarla según sea necesario.
+            this.alumnosTableAdapter.Fill(this.practicaDataSet.Alumnos);
 
         }
     }
