@@ -280,6 +280,7 @@ namespace PracticaFinal.NET
             cerrarVentanas();
 
             ListarNotas.Visible = true;
+            comboBoxNotas.Visible = true;
 
         }
 
