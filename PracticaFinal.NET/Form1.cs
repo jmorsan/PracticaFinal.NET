@@ -24,19 +24,10 @@ namespace PracticaFinal.NET
             connection.Open();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
+    
         private void Form1_Load(object sender, EventArgs e)
         {
-            Refresh();
+            RefreshAll();
         }
 
         //*************ALTAS************************
@@ -67,17 +58,20 @@ namespace PracticaFinal.NET
 
         private void listarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             cerrarVentanas();
+            Refresh_DataGridAlumnos();
             ListarAlumnos.Visible = true;
             dataGridView1.ReadOnly = true;
-            Refresh();
-            this.dataGridView1.DataSource = this.practicaDataSet.Alumnos;
+            
+            
 
         }
 
         private void listarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
+            Refresh_DataGridEvaluaciones();
             ListarEvaluaciones.Visible = true;
 
         }
@@ -86,10 +80,10 @@ namespace PracticaFinal.NET
         private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
+            Refresh_DataGridNotas();
             ListarNotas.Visible = true;
 
             comboBoxNotas.Visible = true;
-
 
         }
 
@@ -181,14 +175,7 @@ namespace PracticaFinal.NET
             miCmd.ExecuteNonQuery();
 
             cerrarVentanas();
-            Refresh();
-            dataGridView1.DataSource = this.practicaDataSet.Alumnos;
-            Refresh();
-            dataGridView1.DataSource = this.practicaDataSet.Alumnos;
-            ListarAlumnos.Visible = true;
             
-
-
             
         }
 
@@ -270,11 +257,6 @@ namespace PracticaFinal.NET
 
         }
 
-        private void AltaEvaluaciones_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void fillByToolStripButton_Click(object sender, EventArgs e)
         {
             try
@@ -288,7 +270,20 @@ namespace PracticaFinal.NET
 
         }
 
-       
+        //*************ACCION BOTONES NOTAS************************
+        //Boton Guardar Notas
+        private void buttonGuardarNotas_Click(object sender, EventArgs e)
+        {
+            
+            notasTableAdapter.Update(practicaDataSet.Notas);
+
+            cerrarVentanas();
+
+            ListarNotas.Visible = true;
+
+        }
+
+
         private void comboBoxNotas_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(comboBoxNotas.SelectedValue!=null)
@@ -297,26 +292,38 @@ namespace PracticaFinal.NET
 
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void RefreshAll() 
         {
-
+            Refresh_DataGridAlumnos();
+            Refresh_DataGridEvaluaciones();
+            Refresh_DataGridNotas();
         }
 
-        private void buttonGuardarNotas_Click(object sender, EventArgs e)
+
+        private void Refresh_DataGridAlumnos()
         {
-
-        }
-
-        private void Refresh()
-        {
-
-            // TODO: esta línea de código carga datos en la tabla 'practicaDataSet.Notas' Puede moverla o quitarla según sea necesario.
-            this.notasTableAdapter.Fill(this.practicaDataSet.Notas);
-            // TODO: esta línea de código carga datos en la tabla 'practicaDataSet.Evaluaciones' Puede moverla o quitarla según sea necesario.
-            this.evaluacionesTableAdapter.Fill(this.practicaDataSet.Evaluaciones);
             // TODO: esta línea de código carga datos en la tabla 'practicaDataSet.Alumnos' Puede moverla o quitarla según sea necesario.
             this.alumnosTableAdapter.Fill(this.practicaDataSet.Alumnos);
 
         }
+
+        private void Refresh_DataGridNotas()
+        {
+            // TODO: esta línea de código carga datos en la tabla 'practicaDataSet.Notas' Puede moverla o quitarla según sea necesario.
+            this.notasTableAdapter.Fill(this.practicaDataSet.Notas);
+
+        }
+
+        private void Refresh_DataGridEvaluaciones()
+        {
+            // TODO: esta línea de código carga datos en la tabla 'practicaDataSet.Evaluaciones' Puede moverla o quitarla según sea necesario.
+            this.evaluacionesTableAdapter.Fill(this.practicaDataSet.Evaluaciones);
+
+        }
+
+        
+
+
+
     }
 }
