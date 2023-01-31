@@ -80,8 +80,11 @@ namespace PracticaFinal.NET
         private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
-            Refresh_DataGridNotas();
             ListarNotas.Visible = true;
+
+            dataGridView3.Visible = false;
+            dataGridView4.Visible = false;
+
 
             comboBoxNotas.Visible = true;
 
@@ -290,6 +293,17 @@ namespace PracticaFinal.NET
             if(comboBoxNotas.SelectedValue!=null)
             //Cargar gridVieww con elemento seleccionado
             this.notasTableAdapter.FillBy(this.practicaDataSet.Notas,Convert.ToInt32(comboBoxNotas.SelectedValue.ToString()));
+            dataGridView3.Visible = true;
+            dataGridView4.Visible = false;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedValue != null)
+                //Cargar gridVieww con elemento seleccionado
+                this.notasTableAdapter.FillBy1(this.practicaDataSet.Notas, Convert.ToInt32(comboBox1.SelectedValue.ToString()));
+            dataGridView3.Visible = false;
+            dataGridView4.Visible = true;
 
         }
 
@@ -323,8 +337,6 @@ namespace PracticaFinal.NET
         }
 
         
-
-
 
     }
 }

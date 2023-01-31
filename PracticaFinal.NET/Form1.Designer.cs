@@ -79,6 +79,15 @@ namespace PracticaFinal.NET
             this.label4 = new System.Windows.Forms.Label();
             this.textDescripcion = new System.Windows.Forms.TextBox();
             this.ListarNotas = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.idAlumnoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idEvaluacionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dIDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pMDMDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonGuardarNotas = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxNotas = new System.Windows.Forms.ComboBox();
@@ -88,7 +97,6 @@ namespace PracticaFinal.NET
             this.dIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pMDMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.notasTableAdapter = new PracticaFinal.NET.practicaDataSetTableAdapters.NotasTableAdapter();
             this.alumnosNotasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.AltaAlumnos.SuspendLayout();
@@ -103,8 +111,9 @@ namespace PracticaFinal.NET
             ((System.ComponentModel.ISupportInitialize)(this.evaluacionesBindingSource)).BeginInit();
             this.AltaEvaluaciones.SuspendLayout();
             this.ListarNotas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.notasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alumnosNotasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,7 +173,6 @@ namespace PracticaFinal.NET
             this.bajaAlumno.TabIndex = 3;
             this.bajaAlumno.Text = "Baja";
             this.bajaAlumno.UseVisualStyleBackColor = true;
-            
             // 
             // label3
             // 
@@ -192,7 +200,6 @@ namespace PracticaFinal.NET
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre: ";
-          
             // 
             // menuStrip1
             // 
@@ -484,7 +491,6 @@ namespace PracticaFinal.NET
             this.AltaEvaluaciones.Name = "AltaEvaluaciones";
             this.AltaEvaluaciones.Size = new System.Drawing.Size(800, 426);
             this.AltaEvaluaciones.TabIndex = 3;
-            
             // 
             // comboBoxEvaluaciones
             // 
@@ -525,6 +531,9 @@ namespace PracticaFinal.NET
             // 
             // ListarNotas
             // 
+            this.ListarNotas.Controls.Add(this.label6);
+            this.ListarNotas.Controls.Add(this.comboBox1);
+            this.ListarNotas.Controls.Add(this.dataGridView4);
             this.ListarNotas.Controls.Add(this.buttonGuardarNotas);
             this.ListarNotas.Controls.Add(this.label5);
             this.ListarNotas.Controls.Add(this.comboBoxNotas);
@@ -533,6 +542,78 @@ namespace PracticaFinal.NET
             this.ListarNotas.Name = "ListarNotas";
             this.ListarNotas.Size = new System.Drawing.Size(820, 446);
             this.ListarNotas.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(547, 222);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Evaluaciones:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataSource = this.evaluacionesBindingSource;
+            this.comboBox1.DisplayMember = "Evaluacion";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(547, 249);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(253, 21);
+            this.comboBox1.TabIndex = 5;
+            this.comboBox1.ValueMember = "Id";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.AutoGenerateColumns = false;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idAlumnoDataGridViewTextBoxColumn1,
+            this.idEvaluacionDataGridViewTextBoxColumn1,
+            this.dIDataGridViewTextBoxColumn1,
+            this.pMDMDataGridViewTextBoxColumn1,
+            this.aDDataGridViewTextBoxColumn1});
+            this.dataGridView4.DataSource = this.notasBindingSource;
+            this.dataGridView4.Location = new System.Drawing.Point(0, 28);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(540, 395);
+            this.dataGridView4.TabIndex = 4;
+            // 
+            // idAlumnoDataGridViewTextBoxColumn1
+            // 
+            this.idAlumnoDataGridViewTextBoxColumn1.DataPropertyName = "Id_Alumno";
+            this.idAlumnoDataGridViewTextBoxColumn1.HeaderText = "Id_Alumno";
+            this.idAlumnoDataGridViewTextBoxColumn1.Name = "idAlumnoDataGridViewTextBoxColumn1";
+            // 
+            // idEvaluacionDataGridViewTextBoxColumn1
+            // 
+            this.idEvaluacionDataGridViewTextBoxColumn1.DataPropertyName = "Id_Evaluacion";
+            this.idEvaluacionDataGridViewTextBoxColumn1.HeaderText = "Id_Evaluacion";
+            this.idEvaluacionDataGridViewTextBoxColumn1.Name = "idEvaluacionDataGridViewTextBoxColumn1";
+            // 
+            // dIDataGridViewTextBoxColumn1
+            // 
+            this.dIDataGridViewTextBoxColumn1.DataPropertyName = "DI";
+            this.dIDataGridViewTextBoxColumn1.HeaderText = "DI";
+            this.dIDataGridViewTextBoxColumn1.Name = "dIDataGridViewTextBoxColumn1";
+            // 
+            // pMDMDataGridViewTextBoxColumn1
+            // 
+            this.pMDMDataGridViewTextBoxColumn1.DataPropertyName = "PMDM";
+            this.pMDMDataGridViewTextBoxColumn1.HeaderText = "PMDM";
+            this.pMDMDataGridViewTextBoxColumn1.Name = "pMDMDataGridViewTextBoxColumn1";
+            // 
+            // aDDataGridViewTextBoxColumn1
+            // 
+            this.aDDataGridViewTextBoxColumn1.DataPropertyName = "AD";
+            this.aDDataGridViewTextBoxColumn1.HeaderText = "AD";
+            this.aDDataGridViewTextBoxColumn1.Name = "aDDataGridViewTextBoxColumn1";
+            // 
+            // notasBindingSource
+            // 
+            this.notasBindingSource.DataMember = "Notas";
+            this.notasBindingSource.DataSource = this.practicaDataSetBindingSource;
             // 
             // buttonGuardarNotas
             // 
@@ -552,7 +633,6 @@ namespace PracticaFinal.NET
             this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 2;
             this.label5.Text = "Alumno: ";
-            
             // 
             // comboBoxNotas
             // 
@@ -614,11 +694,6 @@ namespace PracticaFinal.NET
             this.aDDataGridViewTextBoxColumn.HeaderText = "AD";
             this.aDDataGridViewTextBoxColumn.Name = "aDDataGridViewTextBoxColumn";
             // 
-            // notasBindingSource
-            // 
-            this.notasBindingSource.DataMember = "Notas";
-            this.notasBindingSource.DataSource = this.practicaDataSetBindingSource;
-            // 
             // notasTableAdapter
             // 
             this.notasTableAdapter.ClearBeforeFill = true;
@@ -659,8 +734,9 @@ namespace PracticaFinal.NET
             this.AltaEvaluaciones.PerformLayout();
             this.ListarNotas.ResumeLayout(false);
             this.ListarNotas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.notasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alumnosNotasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -730,6 +806,14 @@ namespace PracticaFinal.NET
         private System.Windows.Forms.DataGridViewTextBoxColumn pMDMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aDDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button buttonGuardarNotas;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idAlumnoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEvaluacionDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dIDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pMDMDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Label label6;
     }
 }
 
